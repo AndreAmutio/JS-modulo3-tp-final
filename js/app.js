@@ -107,6 +107,40 @@ document.addEventListener('DOMContentLoaded', async () => {
           renderEstudiantes(estudiantes, container);
           conectarBotones(estudiantes);
         });
+
+   // Conectar botones de edición y eliminación a cada card
+
+   function conectarBotones(estudiantes) {
+       document.querySelectorAll('.btn-edit').forEach(btn => {
+         btn.addEventListener('click', () => {
+           const id = btn.dataset.id;
+           const estudiante = estudiantes.find(e => e.id === id);
+   
+           inputModalNombre.value = estudiante.nombre;
+           inputModalCarrera.value = estudiante.carrera;
+           inputModalSeniority.value = estudiante.seniority;
+           inputModalAvatar.value = estudiante.avatar;
+   
+           modoEdicion = true;
+           estudianteEditando = estudiante;
+           modal.classList.add('is-active');
+         });
+       });
+   
+       document.querySelectorAll('.btn-delete').forEach(btn => {
+         btn.addEventListener('click', async () => {
+           const id = btn.dataset.id;
+           if (confirm('¿Estás segura de que querés eliminar este estudiante?')) {
+             toggleLoader(true);
+             await deleteEstudiante(id);
+             estudiantes = await getEstudiantes();
+             toggleLoader(false);
+             renderEstudiantes(estudiantes, container);
+             conectarBotones(estudiantes);
+           }
+         });
+       });
+     }  
       
 
 
