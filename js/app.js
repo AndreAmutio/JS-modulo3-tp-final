@@ -76,6 +76,39 @@ document.addEventListener('DOMContentLoaded', async () => {
         modal.classList.add('is-active');
       });
 
+      btnCloseModal.addEventListener('click', cerrarModal);
+        btnCancelModal.addEventListener('click', cerrarModal);
+      
+    // Validar campos y guardar estudiante (nuevo o editado)
+        btnSaveStudent.addEventListener('click', async () => {
+          const datos = {
+            nombre: inputModalNombre.value,
+            carrera: inputModalCarrera.value,
+            seniority: inputModalSeniority.value,
+            avatar: inputModalAvatar.value
+          };
+      
+          if (!datos.nombre || !datos.carrera || !datos.avatar) {
+            alert('Por favor completá todos los campos obligatorios.');
+            return;
+          }
+      
+          toggleLoader(true);
+      
+          if (modoEdicion && estudianteEditando) {
+            await updateEstudiante(estudianteEditando.id, datos);
+          } else {
+            await createEstudiante(datos);
+          }
+      
+          estudiantes = await getEstudiantes();
+          toggleLoader(false);
+          cerrarModal();
+          renderEstudiantes(estudiantes, container);
+          conectarBotones(estudiantes);
+        });
+      
+
 
 
 });
