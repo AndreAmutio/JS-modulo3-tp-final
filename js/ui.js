@@ -29,3 +29,7 @@ export function renderEstudiantes(estudiantes, container) {
 export function toggleLoader(show) {
   document.getElementById('globalLoader').classList.toggle('is-hidden', !show);
 }
+// Muestra u ocultar mensaje si no se encontraron estudiantes con los filtros
+export function showNoResults(show) {
+  document.getElementById('noResults').classList.toggle('is-hidden', !show);
+}
