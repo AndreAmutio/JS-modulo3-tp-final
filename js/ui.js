@@ -1,4 +1,4 @@
-// Renderizar cada estudiante como tarjeta con avatar, nombre, carrera y botones
+// Muestra cada estudiante como tarjeta con avatar, nombre, carrera y botones
 export function renderEstudiantes(estudiantes, container) {
   container.innerHTML = '';
   estudiantes.forEach(est => {
@@ -23,4 +23,9 @@ export function renderEstudiantes(estudiantes, container) {
     `;
     container.appendChild(card);
   });
+}
+
+// Muestra u oculta loader según estado de carga
+export function toggleLoader(show) {
+  document.getElementById('globalLoader').classList.toggle('is-hidden', !show);
 }
