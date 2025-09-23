@@ -141,8 +141,20 @@ document.addEventListener('DOMContentLoaded', async () => {
          });
        });
      }  
-      
 
+  // Cerrar modal y resetear campos del formulario
 
+    function cerrarModal() {
+    modal.classList.remove('is-active');
+    modoEdicion = false;
+    estudianteEditando = null;
+    limpiarModal();
+  }
 
+  function limpiarModal() {
+    inputModalNombre.value = '';
+    inputModalCarrera.value = '';
+    inputModalSeniority.value = 'Junior';
+    inputModalAvatar.value = '';
+  }
 });
