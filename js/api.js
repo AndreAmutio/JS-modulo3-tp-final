@@ -27,3 +27,10 @@ export async function updateEstudiante(id, data) {
   return res.json();
 }
 
+// Eliminar estudiante de la base de datos por ID
+export async function deleteEstudiante(id) {
+  const res = await fetch(`${API_URL}/${id}`, {
+    method: 'DELETE'
+  });
+  return res.ok;
+}
