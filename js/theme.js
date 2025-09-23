@@ -37,7 +37,7 @@ export function initThemeToggle() {
       btn.classList.add('is-dark');
     });
 
-// Cambiar ícono y texto del botón para reflejar el tema actual
+// Cambia ícono y texto del botón para reflejar el tema actual
     icon.classList.replace('fa-moon', 'fa-sun');
     label.textContent = 'Claro';
     } else {
