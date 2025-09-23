@@ -47,6 +47,27 @@ document.addEventListener('DOMContentLoaded', async () => {
     renderEstudiantes(estudiantes, container);
     conectarBotones(estudiantes);
   
+    // Aplicar filtros y mostrar resultados según lo seleccionado
+     btnBuscar.addEventListener('click', () => {
+        const filtrados = applyFilters(
+          estudiantes,
+          inputNombre.value,
+          selectCarrera.value,
+          selectSeniority.value
+        );
+        renderEstudiantes(filtrados, container);
+        conectarBotones(filtrados);
+        showNoResults(filtrados.length === 0);
+      });
+    
+      btnLimpiar.addEventListener('click', () => {
+        inputNombre.value = '';
+        selectCarrera.value = '';
+        selectSeniority.value = '';
+        renderEstudiantes(estudiantes, container);
+        conectarBotones(estudiantes);
+        showNoResults(false);
+      });
 
 
 
