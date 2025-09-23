@@ -12,14 +12,22 @@ export function initThemeToggle() {
   const newTheme = document.body.classList.contains('has-background-light') ? 'dark' : 'light';
   setTheme(newTheme);
   localStorage.setItem('theme', newTheme);
+  });
   
-}); 
+  // Aplicar clases Bulma para adaptar visuales al tema seleccionado
+  function setTheme(theme) {
+  const body = document.body;
+  const navbar = document.querySelector('.navbar');
+  const cards = document.querySelectorAll('.card');
+  const buttons = document.querySelectorAll('.button');
 
 
 
 
 
 
+
+}
 }
 
 
