@@ -114,6 +114,51 @@
       </div>
     </div>
   </section>
+   <!-- Modal Agregar/Editar Estudiante -->
+  <div id="studentModal" class="modal">
+   <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+       <p class="modal-card-title"> Agregar Estudiante </p>
+       <button class="delete" aria-label="close" id="btnCloseModal"></button>
+      </header>
+      <section class="modal-card-body">
+        <div class="field">
+         <label class="label"> Nombre </label>
+         <input id="inputNombre" class="input" type="text" placeholder="Ej: Juan Pérez">
+        </div>
+        <div class="field">
+         <label class="label"> Carrera </label>
+         <div class="select is-fullwidth">
+            <select id="inputCarrera">
+              <option> Frontend </option>
+              <option> Backend </option>
+              <option> UX-UI </option>
+              <option> QA Tester </option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+         <label class="label"> Seniority </label>
+          <div class="select is-fullwidth">
+            <select id="inputSeniority">
+              <option> Junior </option>
+              <option> Semi-Senior </option>
+              <option> Senior </option>
+            </select>
+          </div>
+        </div>
+      <div class="field">
+        <label class="label"> Avatar (URL)</label>
+        <input id="inputAvatar" class="input" type="url" placeholder="https://...">
+      </div>
+    </section>
+    <footer class="modal-card-foot">
+      <button id="btnSaveStudent" class="button is-success"> Guardar </button>
+      <button class="button" id="btnCancelModal"> Cancelar </button>
+    </footer>
+   </div>
+  </div>
 
 
 
