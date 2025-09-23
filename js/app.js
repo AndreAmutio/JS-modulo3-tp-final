@@ -1,3 +1,4 @@
+// Importación de funciones para API, UI, filtros y tema visual
 import {
   getEstudiantes,
   createEstudiante,
@@ -13,3 +14,26 @@ import {
 
 import { applyFilters } from './filters.js';
 import { initThemeToggle } from './theme.js';
+
+// Referencias a elementos del DOM y variables para controlar edición
+document.addEventListener('DOMContentLoaded', async () => {
+  const container = document.getElementById('resultsContainer');
+  const inputNombre = document.getElementById('searchInput');
+  const selectCarrera = document.getElementById('filterCareer');
+  const selectSeniority = document.getElementById('filterSeniority');
+  const btnBuscar = document.getElementById('btnSearch');
+  const btnLimpiar = document.getElementById('btnClearFilters');
+  const btnOpenAdd = document.getElementById('btnOpenAdd');
+  const modal = document.getElementById('studentModal');
+  const btnCloseModal = document.getElementById('btnCloseModal');
+  const btnCancelModal = document.getElementById('btnCancelModal');
+  const btnSaveStudent = document.getElementById('btnSaveStudent');
+
+  const inputModalNombre = document.getElementById('inputNombre');
+  const inputModalCarrera = document.getElementById('inputCarrera');
+  const inputModalSeniority = document.getElementById('inputSeniority');
+  const inputModalAvatar = document.getElementById('inputAvatar');
+
+  let estudiantes = [];
+  let modoEdicion = false;
+  let estudianteEditando = null;
