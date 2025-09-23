@@ -37,3 +37,17 @@ document.addEventListener('DOMContentLoaded', async () => {
   let estudiantes = [];
   let modoEdicion = false;
   let estudianteEditando = null;
+
+  // Carga inicial de datos y renderizado en pantalla
+   initThemeToggle();
+  
+    toggleLoader(true);
+    estudiantes = await getEstudiantes();
+    toggleLoader(false);
+    renderEstudiantes(estudiantes, container);
+    conectarBotones(estudiantes);
+  
+
+
+
+});
