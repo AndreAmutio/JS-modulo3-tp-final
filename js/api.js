@@ -16,3 +16,14 @@ export async function createEstudiante(data) {
   });
   return res.json();
 }
+
+// Actualizar estudiante existente por ID
+export async function updateEstudiante(id, data) {
+  const res = await fetch(`${API_URL}/${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  });
+  return res.json();
+}
+
