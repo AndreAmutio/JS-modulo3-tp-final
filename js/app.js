@@ -60,13 +60,20 @@ document.addEventListener('DOMContentLoaded', async () => {
         showNoResults(filtrados.length === 0);
       });
     
-      btnLimpiar.addEventListener('click', () => {
+     btnLimpiar.addEventListener('click', () => {
         inputNombre.value = '';
         selectCarrera.value = '';
         selectSeniority.value = '';
         renderEstudiantes(estudiantes, container);
         conectarBotones(estudiantes);
         showNoResults(false);
+      });
+
+     btnOpenAdd.addEventListener('click', () => {
+        modoEdicion = false;
+        estudianteEditando = null;
+        limpiarModal();
+        modal.classList.add('is-active');
       });
 
 
