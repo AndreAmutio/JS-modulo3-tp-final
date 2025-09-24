@@ -130,17 +130,46 @@ document.addEventListener('DOMContentLoaded', async () => {
        document.querySelectorAll('.btn-delete').forEach(btn => {
          btn.addEventListener('click', async () => {
            const id = btn.dataset.id;
-           if (confirm('¿Estás segura de que querés eliminar este estudiante?')) {
-             toggleLoader(true);
-             await deleteEstudiante(id);
-             estudiantes = await getEstudiantes();
-             toggleLoader(false);
-             renderEstudiantes(estudiantes, container);
-             conectarBotones(estudiantes);
-           }
+           mostrarModalConfirmacion(id);
+
+      //      if (confirm('¿Estás segura de que querés eliminar este estudiante?')) {
+      //        toggleLoader(true);
+      //        await deleteEstudiante(id);
+      //        estudiantes = await getEstudiantes();
+      //        toggleLoader(false);
+      //        renderEstudiantes(estudiantes, container);
+      //        conectarBotones(estudiantes);
+      //      }
          });
        });
      }  
+
+  function mostrarModalConfirmacion(id) {
+  const modal = document.getElementById('modal-confirm');
+  modal.classList.add('is-active');
+
+  const btnConfirm = document.getElementById('btn-confirm-delete');
+  const btnCancel = document.getElementById('btn-cancel-delete');
+
+  // Limpiar listeners anteriores
+  btnConfirm.onclick = null;
+  btnCancel.onclick = null;
+
+  btnConfirm.onclick = async () => {
+    modal.classList.remove('is-active');
+    toggleLoader(true);
+    await deleteEstudiante(id);
+    estudiantes = await getEstudiantes();
+    toggleLoader(false);
+    renderEstudiantes(estudiantes, container);
+    conectarBotones(estudiantes);
+  };
+
+  btnCancel.onclick = () => {
+    modal.classList.remove('is-active');
+  };
+}
+
 
   // Cerrar modal y resetear campos del formulario
 
