@@ -29,7 +29,7 @@ Desarrollé una aplicación frontend con filtros, CRUD, modo oscuro y visuales a
 ## 🚀 Deploy
 
 Podés ver el proyecto online en:  
-👉 [https://ada-comi25.vercel.app](https://ada-comi25.vercel.app)
+👉 [https://ada-comi25.vercel.app](https://js-modulo3-tp-final.vercel.app/))
 
 
 ## 🖼️ Capturas del proyecto
